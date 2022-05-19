@@ -51,3 +51,6 @@ select * from personel;
 -- SORU6: isciler tablosundaki ulke_adi sutununa NOT NULL kisitlamasi ekleyiniz ve veri tipini VARCHAR(30) olarak değiştiriniz. 
    
    alter table isciler modify ulke_adi varchar(30) not null;
+   
+   alter table isciler add constraint maas_kontrol check (maas>'3000');
+   -- tabloya maas min 3000 girilebilir seklinde kisit ekliyoruz

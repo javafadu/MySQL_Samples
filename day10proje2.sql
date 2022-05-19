@@ -57,6 +57,5 @@ emp_no INT,
 salary INT,
 from_date DATE,
 to_date DATE,
-FOREIGN KEY(emp_no) REFERENCES employees(emp_no),
-FOREIGN KEY(from_date) REFERENCES titles(from_date)
+FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );

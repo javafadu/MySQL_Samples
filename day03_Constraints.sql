@@ -19,14 +19,15 @@ ise_baslama DATE
 );
 INSERT INTO calisanlar VALUES( '10002', 'Mehmet Yılmaz' ,12000, '2018-04-14');
 INSERT INTO calisanlar VALUES('10008', null, 5000, '2018-04-14');
-INSERT INTO calisanlar VALUES('10010', null, 5000, '2018-04-14');
+INSERT INTO calisanlar VALUES('10010', null, 5000, '2018-04-14'); -- 2.kez null eklenebilir unique yu bozmaz null oldugu icin
 INSERT INTO calisanlar VALUES('10004', 'Veli Han', 5000, '2018-04-14');
 INSERT INTO calisanlar VALUES('10005', 'Mustafa Ali', 5000, '2018-04-14');
-INSERT INTO calisanlar VALUES('10006', 'Canan Yaş', NULL, '2019-04-12');
+INSERT INTO calisanlar VALUES('10006', 'Canan Yaş', NULL, '2019-04-12'); -- maas null olmasin diye tanimlamistik
 INSERT INTO calisanlar VALUES('10003', 'CAN', 5000, '2018-04-14');
-INSERT INTO calisanlar VALUES('10007', 'CAN', 5000, '2018-04-14');
-INSERT INTO calisanlar VALUES('10009', 'cem', '', '2018-04-14');
+INSERT INTO calisanlar VALUES('10007', 'CAN', 5000, '2018-04-14'); -- zaten CAN var, ekleyemez, isim unique
+INSERT INTO calisanlar VALUES('10009', 'cem', '', '2018-04-14'); -- int olmadigi icin eklemez
 INSERT INTO calisanlar VALUES('', 'osman', 2000, '2018-04-14');
+INSERT INTO calisanlar VALUES('', 'osman can', 2000, '2018-04-14');
 INSERT INTO calisanlar VALUES( '10002', 'ayse Yılmaz' ,12000, '2018-04-14');
 INSERT INTO calisanlar VALUES( null, 'filiz ' ,12000, '2018-04-14');
      
@@ -51,6 +52,7 @@ INSERT INTO adresler VALUES('10002','Ağa Sok', '30.Cad.','Antep');
    
 -- FK'ye null değeri atanabilir.
 INSERT INTO adresler VALUES(NULL,'Ağa Sok', '30.Cad.','Antep');
+INSERT INTO adresler VALUES(NULL,'Ağa Sok', '30.Cad.','Maraş');
      
 select * from adresler;
 -- bağlanti tablolarda child silinmeden parent silinmez
@@ -85,7 +87,8 @@ CREATE TABLE notlar
 ders_adi varchar(30),
 yazili_notu int,
 CONSTRAINT notlar_fk FOREIGN KEY (talebe_id) REFERENCES talebeler(id)
-on delete cascade); -- on delete cascade sayesinde
+on delete cascade); 
+-- on delete cascade sayesinde
 -- parent taki silinen bir kayıt ile ilişkili olan tüm child kayıtlarını
 -- siler.  
 -- mesela bir hastane silindi o hastanedeki bütün kayıtlar silinmeli, oda böyle olur.
